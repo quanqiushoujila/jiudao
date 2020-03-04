@@ -4,12 +4,13 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": false,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"nodeModules": true,
 		"autoAudits": false,
 		"checkInvalidKey": true,
@@ -24,7 +25,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.10.2",
 	"appid": "wx9b0fa201ac5c7ef2",
-	"projectname": "one",
+	"projectname": "jiudao",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
