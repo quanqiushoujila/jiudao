@@ -1,0 +1,10 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="tab-wrapper">
+    <van-tabs active="{{ active }}" bind:change="onChange">
+      <van-tab title="正在热映">正在热映</van-tab>
+      <van-tab title="即将上映">即将上映</van-tab>
+    </van-tabs>
+  </view>
+  
+</view>

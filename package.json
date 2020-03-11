@@ -1,23 +1,11 @@
 {
-  "name": "林间有林",
+  "name": "miniprogram",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "scripts": {},
+  "author": "cy920820",
   "dependencies": {
-    "@vant/weapp": "^1.0.6"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quanqiushoujila/jiudao.git"
-  },
-  "author": "kai",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/quanqiushoujila/jiudao/issues"
-  },
-  "homepage": "https://github.com/quanqiushoujila/jiudao#readme"
+    "vant-weapp": "^0.5.6"
+  }
 }

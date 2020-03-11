@@ -1,38 +1,46 @@
 {
   "pages": [
-    "pages/classic/classic"
+    "pages/index/index",
+    "pages/detail/index",
+    "pages/list/index",
+    "pages/all-list/index",
+    "pages/search/index",
+    "pages/profile/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "林間有林",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#dc3c38",
+    "navigationBarTitleText": "电影",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "color": "#696969",
+    "selectedColor": "#f03d37",
+    "backgroundColor": "#fff",
     "borderStyle": "black",
-    "selectedColor": "#000000",
-    "backgroundColor": "#ffffff",
-    "color": "#c7c7c7",
     "list": [
       {
-        "pagePath": "pages/classic/classic",
-        "text": "流行",
-        "selectedIconPath": "/images/tab/classic@highlight.png",
-        "iconPath": "/images/tab/classic.png"
+        "pagePath": "pages/index/index",
+        "text": "院线",
+        "selectedIconPath": "/images/movies_active.png",
+        "iconPath": "/images/movies.png"
       },
       {
-        "pagePath": "pages/classic/classic",
-        "text": "书单",
-        "selectedIconPath": "/images/tab/book@highlight.png",
-        "iconPath": "/images/tab/book.png"
+        "pagePath": "pages/list/index",
+        "text": "豆瓣榜单",
+        "selectedIconPath": "/images/list_active.png",
+        "iconPath": "/images/list.png"
       },
       {
-        "pagePath": "pages/classic/classic",
-        "text": "喜欢",
-        "selectedIconPath": "/images/tab/my@highlight.png",
-        "iconPath": "/images/tab/my.png"
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "selectedIconPath": "/images/profile_active.png",
+        "iconPath": "/images/profile.png"
       }
     ]
+  },
+  "usingComponents": {
+    "van-tab": "./miniprogram_npm/vant-weapp/tab/index",
+    "van-tabs": "./miniprogram_npm/vant-weapp/tabs/index"
   },
   "sitemapLocation": "sitemap.json"
 }
