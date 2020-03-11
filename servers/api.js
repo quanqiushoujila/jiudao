@@ -19,4 +19,4 @@ Object.keys(apis).forEach((key) => {
   apis[key] = `${origin}/${apis[key]}`
 })
 
-module.exports = apis
+export default apis

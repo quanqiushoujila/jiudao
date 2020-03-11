@@ -1,0 +1,45 @@
+<view class="panel-item">
+  <view class="left">
+    <image src="{{movie.images.small}}"></image>
+  </view>
+  <view class="right">
+    <!-- 标题 -->
+    <view class="title">
+      <text class="tit">{{movie.title}}</text>
+      <text class="rating">
+        豆瓣评分：{{movie.rating.average}}
+      </text>
+    </view>
+    <!-- 观看人数 -->
+    <view class="collect_count">
+      <text>{{movie.collect_count}}</text>人观看过
+    </view>
+    <!-- 主演 -->
+    <!-- <wxs module="casts">
+      let starrings = function(data) {
+        console.log(data)
+        return '1111'
+      }
+      module.exports.starrings = starrings
+    </wxs> -->
+    <wxs module="m1">
+      var starrings = function(casts) {
+        casts = casts.map(function(cast, index) {
+          if (casts.length - 1 !== index) {
+            return cast.name + ' '
+          } else {
+            return cast.name
+          }
+        })
+
+        return casts.join('')
+      }
+      module.exports.starrings = starrings
+    </wxs>
+    <view class="casts ellipsis">主演：{{m1.starrings(movie.casts)}}</view>
+    <!-- 大陆上映时间 -->
+    <view class="mainland_pubdate">
+      <text>{{movie.mainland_pubdate}}</text>
+    </view>
+  </view>
+</view>
