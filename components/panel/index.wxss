@@ -27,7 +27,7 @@
   max-height: 48rpx;
   margin-bottom: 8rpx;
   line-height: 48rpx;
-  /* overflow: hidden; */
+  overflow: hidden;
   display: flex;
 }
 .panel-item .right .title .tit{
@@ -35,14 +35,12 @@
   color: #333;
   font-weight: 700;
   padding-right: 10rpx;
-  display: inline;
 }
 .panel-item .right .title .rating {
-  display: inline;
   color: #f03d37;
   font-size: 22rpx;
   text-overflow: ellipsis;
-  /* overflow: hidden; */
+  overflow: hidden;
   white-space: nowrap;
 }
 .panel-item .right .collect_count {

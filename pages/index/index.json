@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "k-panel": "../../components/panel/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

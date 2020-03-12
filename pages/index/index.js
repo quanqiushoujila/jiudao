@@ -9,7 +9,9 @@ Page({
   data: {
     active: 0,
     hotData: [],
-    hotMore: true
+    uncomingData: [],
+    hotMore: true,
+    uncomingMore: true
   },
 
   /**
@@ -51,14 +53,42 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.setData({
+      hotData: [],
+      uncomingData: [],
+      hotMore: true,
+      uncomingMore: true
+    })
+    let hotCallback = function () {
+      wx.stopPullDownRefresh()
+    }
+    let uncomingCallback = function () {
+      wx.stopPullDownRefresh()
+    }
+    if (this.data.active === 0) {
+      this.getHotList({
+        callback: hotCallback
+      })
+    } else if (this.data.active === 1) {
+      this.getUncomingList({
+        callback: uncomingCallback
+      })
+    }
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    if (this.data.active === 0) {
+      if (this.data.hotMore) {
+        this.getHotList()
+      }
+    } else if (this.data.active === 1) {
+      if (this.data.uncomingMore) {
+        this.getUncomingList()
+      }
+    }
   },
 
   /**
@@ -68,19 +98,60 @@ Page({
 
   },
 
-  getHotList() {
+  getHotList(params) {
+    if (!params) {
+      params = {}
+    }
+    if (!params.data) {
+      params.data = {}
+    }
     if (this.data.hotMore) {
       wx.showLoading()
-      panelModel.getHotDetail().then((data) => {
+      panelModel.getHotDetail(params.data).then((data) => {
         wx.hideLoading()
         this.setData({
           hotData: this.data.hotData.concat(data.subjects)
         })
         this.data.hotMore = this.data.hotData.length < this.data.total
-        console.log(this.data.hotData)
+        params.callback && params.callback()
       }).catch(() => {
         wx.hideLoading()
       })
+    }
+  },
+  getUncomingList(params) {
+    if (!params) {
+      params = {}
+    }
+    if (!params.data) {
+      params.data = {}
+    }
+    if (this.data.uncomingMore) {
+      wx.showLoading()
+      panelModel.getUncomingDetail(params.data).then((data) => {
+        wx.hideLoading()
+        this.setData({
+          uncomingData: this.data.uncomingData.concat(data.subjects)
+        })
+        this.data.uncomingMore = this.data.uncomingData.length < this.data.total
+        params.callback && params.callback()
+      }).catch(() => {
+        wx.hideLoading()
+      })
+    }
+  },
+  onChange (data) {
+    this.setData({
+      active: data.detail.index
+    })
+    if (data.detail.index === 0) {
+      if (this.data.hotData.length === 0) {
+        this.getHotList()
+      }
+    } else if (data.detail.index === 1) {
+      if (this.data.uncomingData.length === 0) {
+        this.getUncomingList()
+      }
     }
   }
 })
