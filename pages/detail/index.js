@@ -1,18 +1,22 @@
 // pages/detail/index.js
+import Detail from '../../models/detail.js'
+let detailModel = new Detail()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    data: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let id = options.id
+    console.log('id', id)
+    id && this.getDetailById(id)
   },
 
   /**
@@ -33,7 +37,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**
@@ -62,5 +66,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getDetailById(id) {
+    wx.showLoading()
+    detailModel.getDetail(id).then((data) => {
+      this.setData({
+        data: data
+      })
+      wx.hideLoading()
+    }).catch(() => {
+      wx.hideLoading()
+    })
   }
 })

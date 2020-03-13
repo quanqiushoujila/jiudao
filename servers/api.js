@@ -6,7 +6,7 @@ let apis = {
   // 即将上映
   'coming_soon': '/v2/movie/coming_soon',
   // 电影条目
-  'subject': '/v2/movie/subject',
+  'subject': 'v2/movie/subject',
   // 新片榜
   'new_movies': '/v2/movie/new_movies',
   // 豆瓣 top250

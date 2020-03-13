@@ -80,9 +80,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    console.log('onReachBottom', this.data.active, this.data.hotMore)
+    let size = 10
     if (this.data.active === 0) {
       if (this.data.hotMore) {
-        this.getHotList()
+        let params = {start: this.data.hotData.length }
+        this.getHotList(params)
       }
     } else if (this.data.active === 1) {
       if (this.data.uncomingMore) {
@@ -97,7 +100,14 @@ Page({
   onShareAppMessage: function() {
 
   },
-
+  onTo (e) {
+    let id = e.currentTarget.id
+    // console.log(e)
+    wx.navigateTo({
+      url: `../detail/index?id=${id}`,
+    })
+  },
+  // 热映
   getHotList(params) {
     if (!params) {
       params = {}
@@ -112,7 +122,7 @@ Page({
         this.setData({
           hotData: this.data.hotData.concat(data.subjects)
         })
-        this.data.hotMore = this.data.hotData.length < this.data.total
+        this.data.hotMore = this.data.hotData.length < data.total
         params.callback && params.callback()
       }).catch(() => {
         wx.hideLoading()
@@ -133,7 +143,7 @@ Page({
         this.setData({
           uncomingData: this.data.uncomingData.concat(data.subjects)
         })
-        this.data.uncomingMore = this.data.uncomingData.length < this.data.total
+        this.data.uncomingMore = this.data.uncomingData.length < data.total
         params.callback && params.callback()
       }).catch(() => {
         wx.hideLoading()

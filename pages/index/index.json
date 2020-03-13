@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "电影",
   "usingComponents": {
     "k-panel": "../../components/panel/index"
   },

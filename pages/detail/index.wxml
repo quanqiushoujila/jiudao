@@ -1,2 +1,5 @@
 <!--pages/detail/index.wxml-->
-<text>pages/detail/index.wxml</text>
+<view>
+  <detail-header>
+  </detail-header>
+</view>

@@ -3,6 +3,7 @@
   background-color: #fff;
   padding: 30rpx;
   width: 100%;
+  box-sizing:border-box;
 }
 .panel-item .left {
   width: 128rpx;

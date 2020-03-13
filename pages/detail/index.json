@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "影片详情",
+  "usingComponents": {
+    "detail-header": "../../components/detail/header/index",
+    "detail-actor": "../../components/detail/actor/index",
+    "detail-picture": "../../components/detail/picture/index",
+    "detail-appraise": "../../components/detail/appraise/index"
+  }
 }

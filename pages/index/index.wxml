@@ -1,12 +1,12 @@
 <!--pages/index/index.wxml-->
 <view class="container">
   <view class="tab-wrapper">
-    <van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tabs active="{{ active }}" bind:change="onChange" swipeable sticky>
       <van-tab title="正在热映">
-        <k-panel wx:for="{{hotData}}" movie="{{item}}" wx:key="*this"></k-panel>
+        <k-panel wx:for="{{hotData}}" movie="{{item}}" wx:key="*this" id="{{item.id}}" bindtap="onTo"></k-panel>
       </van-tab>
       <van-tab title="即将上映">
-        <k-panel wx:for="{{uncomingData}}" movie="{{item}}" wx:key="*this"></k-panel>
+        <k-panel wx:for="{{uncomingData}}" movie="{{item}}" wx:key="*this" id="{{item.id}}" bindtap="onTo"></k-panel>
       </van-tab>
     </van-tabs>
   </view>
