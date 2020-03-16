@@ -1,2 +1,21 @@
-<!--components/detail/header/index.wxml-->
-<text>components/detail/header/index.wxml</text>
+<view class="detail-header">
+  <view class="panel-bg" style="background-image: url({{data.images.large}})"></view>
+  <view class="main">
+    <view class="image" bindtap="watchTrailer">
+        <image src="{{detail.images.large}}"></image>
+      </view>
+      <view class="describe">
+        <view class="name-cn ellipsis">
+          {{detail.title}}
+          <text class="douban-rating ellipsis">豆瓣评分：{{detail.rating.average}}</text>
+        </view>
+        <text class="name-en ellipsis">{{detail.original_title}}</text>
+        <view class="ellipsis" style="margin-top: 22rpx;">
+          <text class="wish-count ellipsis">{{detail.wish_count}}人想看</text>
+        </view>
+        <text class="genres ellipsis">{{m1.genres(detail.genres)}}</text>
+        <text class="length ellipsis">{{detail.countries[0]}}/{{detail.durations[0]}}</text>
+        <text class="pubdate ellipsis">{{detail.pubdate}} 大陆上映</text>
+      </view>
+  </view>
+</view>

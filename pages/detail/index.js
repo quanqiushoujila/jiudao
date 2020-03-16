@@ -15,8 +15,7 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id
-    console.log('id', id)
-    id && this.getDetailById(id)
+    // id && this.getDetailById(id)
   },
 
   /**
